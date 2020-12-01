@@ -16,12 +16,9 @@ class Day1:
         # check if the numbers add to 2020
         # exit the loop if over 2020
         for pos, num in enumerate(self.in_arr):
-            for num2 in self.in_arr[pos+1:]:
-                if num+num2 == 2020:
-                    return num*num2
+            if 2020-num in self.in_arr[pos+1:]:
+                return num*(2020-num)
 
-                if num+num2 > 2020:
-                    break
         return None
 
     def get_sum_three_2020(self):
@@ -29,12 +26,11 @@ class Day1:
 
         for pos, num in enumerate(self.in_arr):
             for pos2, num2 in enumerate(self.in_arr[pos+1:]):
-                for num3 in self.in_arr[pos2+1:]:
-                    if num+num2+num3 == 2020:
-                        return num*num2*num3
+                if num+num2 > 2020:
+                    break
 
-                    if num+num2+num3 > 2020:
-                        break
+                if 2020-num-num2 in self.in_arr[pos2+1:]:
+                    return num*num2*(2020-num-num2)
 
         return None
 
