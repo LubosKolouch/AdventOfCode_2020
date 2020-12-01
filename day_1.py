@@ -26,7 +26,7 @@ class Day1:
 
         for pos, num in enumerate(self.in_arr):
             for pos2, num2 in enumerate(self.in_arr[pos+1:]):
-                if num+num2 > 2020:
+                if num+num2 >= 2020:
                     break
 
                 if 2020-num-num2 in self.in_arr[pos2+1:]:
