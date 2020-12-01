@@ -13,7 +13,8 @@ class Day1:
         """ get the numbers needed for Task1 """
 
         # loop throught the list
-        # check if we have also the 2020-num
+        # check if the numbers add to 2020
+        # exit the loop if over 2020
         for pos, num in enumerate(self.in_arr):
             for num2 in self.in_arr[pos+1:]:
                 if num+num2 == 2020:
@@ -26,8 +27,6 @@ class Day1:
     def get_sum_three_2020(self):
         """ get the numbers needed for Task2 """
 
-        # loop throught the list
-        # check if we have also the 2020-num
         for pos, num in enumerate(self.in_arr):
             for pos2, num2 in enumerate(self.in_arr[pos+1:]):
                 for num3 in self.in_arr[pos2+1:]:
