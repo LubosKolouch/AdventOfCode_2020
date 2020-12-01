@@ -43,7 +43,7 @@ class Day1:
 def main():
     """ Run the daily tasks """
     with open("input1", "r") as in_file:
-        in_arr = [int(line.strip()) for line in in_file.readlines()]
+        in_arr = (int(line.strip()) for line in in_file.readlines())
 
     day1 = Day1(in_arr)
     print(f"Task1: {day1.get_sum_two_2020()}")
