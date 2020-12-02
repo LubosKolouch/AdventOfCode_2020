@@ -36,8 +36,7 @@ class Day2:
 
         valid_passwords = 0
         # loop throught the list
-        # count the letters
-        # increase counter if matching the policy
+        # increase counter if only 1 letter at the right position
         for pwd_line in self.in_arr:
             pos1, pos2, letter, pwd = self.decode_line(pwd_line)
             letters_count = (pwd[int(pos1)-1] == letter) + (pwd[int(pos2)-1] == letter)
