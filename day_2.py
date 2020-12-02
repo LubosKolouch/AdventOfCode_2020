@@ -62,4 +62,4 @@ if __name__ == "__main__":
 day2_test = Day2(['4-5 l: rllllj', '1-2 l: rllllj'])
 assert day2_test.decode_line('4-5 l: rllllj') == ('4', '5', 'l', 'rllllj')
 assert day2_test.get_task1() == 1
-assert day2_test.get_task1() == 1
+assert day2_test.get_task2() == 1
