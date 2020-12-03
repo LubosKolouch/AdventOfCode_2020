@@ -1,6 +1,5 @@
 #!/bin/env python
 """ Advent Of Code 2020 Day 2 """
-import re
 
 
 class Day3:
