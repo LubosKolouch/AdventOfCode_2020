@@ -116,8 +116,7 @@ class Day4:
         """ Count valid passports """
         valid_passports = 0
         for passport in self.passports:
-            if passport.is_valid(task=task):
-                valid_passports += 1
+            valid_passports += passport.is_valid(task=task)
 
         return valid_passports
 
