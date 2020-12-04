@@ -12,27 +12,15 @@ class Passport:
 
     def check_byr(self):
         """ Check the rules for byr """
-
-        if re.match(r'(19[2-9]\d)|(200[012])$', self.fields['byr']):
-            return 1
-
-        return 0
+        return re.match(r'(19[2-9]\d)|(200[012])$', self.fields['byr'])
 
     def check_iyr(self):
         """ Check the rules for iyr """
-
-        if re.match(r'20[12]\d$', self.fields['iyr']):
-            return 1
-
-        return 0
+        return re.match(r'20[12]\d$', self.fields['iyr'])
 
     def check_eyr(self):
         """ Check the rules for eyr """
-
-        if re.match(r'20[23]\d$', self.fields['eyr']):
-            return 1
-
-        return 0
+        return re.match(r'20[23]\d$', self.fields['eyr'])
 
     def check_hgt(self):
         """ Check the rules for hgt """
@@ -51,28 +39,17 @@ class Passport:
 
     def check_hcl(self):
         """ Check the rules for hcl """
-        match = re.match(r'#([0-9]|[a-f]){6}$', self.fields['hcl'])
-        if not match:
-            return 0
-
-        return 1
+        return re.match(r'#([0-9]|[a-f]){6}$', self.fields['hcl'])
 
     def check_ecl(self):
         """ Check the rules for ecl """
 
         valid_colors = ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth']
-        if not self.fields['ecl'] in valid_colors:
-            return 0
-
-        return 1
+        return self.fields['ecl'] in valid_colors
 
     def check_pid(self):
         """ Check the rules for pid """
-        match = re.match(r'([0-9]){9}$', self.fields['pid'])
-        if not match:
-            return 0
-
-        return 1
+        return re.match(r'([0-9]){9}$', self.fields['pid'])
 
     def is_valid(self, task: int):
         """ Check if the given passport is valid """
@@ -145,46 +122,46 @@ day4_test.load_dict("input4")
 
 test_passport = Passport()
 test_passport.fields['byr'] = '2002'
-assert test_passport.check_byr() == 1
+assert test_passport.check_byr()
 test_passport.fields['byr'] = '2003'
-assert test_passport.check_byr() == 0
+assert not test_passport.check_byr()
 test_passport.fields['byr'] = 'abcd'
-assert test_passport.check_byr() == 0
+assert not test_passport.check_byr()
 test_passport.fields['byr'] = 'a2003'
-assert test_passport.check_byr() == 0
+assert not test_passport.check_byr()
 test_passport.fields['byr'] = '1919'
-assert test_passport.check_byr() == 0
+assert not test_passport.check_byr()
 test_passport.fields['byr'] = '0002'
-assert test_passport.check_byr() == 0
+assert not test_passport.check_byr()
 
 test_passport.fields['hgt'] = '60in'
-assert test_passport.check_hgt() == 1
+assert test_passport.check_hgt()
 test_passport.fields['byr'] = '190cm'
-assert test_passport.check_hgt() == 1
+assert test_passport.check_hgt()
 test_passport.fields['hgt'] = '190in'
-assert test_passport.check_hgt() == 0
+assert not test_passport.check_hgt()
 test_passport.fields['hgt'] = '190'
-assert test_passport.check_hgt() == 0
+assert not test_passport.check_hgt()
 
 test_passport.fields['hcl'] = '#123abc'
-assert test_passport.check_hcl() == 1
+assert test_passport.check_hcl()
 test_passport.fields['hcl'] = '#123abz'
-assert test_passport.check_hcl() == 0
+assert not test_passport.check_hcl()
 test_passport.fields['hcl'] = '123abc'
-assert test_passport.check_hcl() == 0
+assert not test_passport.check_hcl()
 test_passport.fields['hcl'] = '#123abca'
-assert test_passport.check_hcl() == 0
+assert not test_passport.check_hcl()
 
 test_passport.fields['ecl'] = 'brn'
-assert test_passport.check_ecl() == 1
+assert test_passport.check_ecl()
 test_passport.fields['ecl'] = 'wat'
-assert test_passport.check_ecl() == 0
+assert not test_passport.check_ecl()
 test_passport.fields['ecl'] = 'wata'
-assert test_passport.check_ecl() == 0
+assert not test_passport.check_ecl()
 
 test_passport.fields['pid'] = '000000001'
-assert test_passport.check_pid() == 1
+assert test_passport.check_pid()
 test_passport.fields['pid'] = '0123456789'
-assert test_passport.check_pid() == 0
+assert not test_passport.check_pid()
 test_passport.fields['pid'] = 'a000000001'
-assert test_passport.check_pid() == 0
+assert not test_passport.check_pid()
