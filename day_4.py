@@ -23,9 +23,7 @@ class Passport:
     def check_iyr(self):
         """ Check the rules for iyr """
 
-        if re.match(r'\d{4}$', self.fields['iyr']) \
-           and int(self.fields['iyr']) >= 2010 \
-           and int(self.fields['iyr']) <= 2020:
+        if re.match(r'20[12]\d$', self.fields['iyr']):
             return 1
 
         return 0
@@ -33,9 +31,7 @@ class Passport:
     def check_eyr(self):
         """ Check the rules for eyr """
 
-        if re.match(r'\d{4}$', self.fields['eyr']) \
-           and int(self.fields['eyr']) >= 2020 \
-           and int(self.fields['eyr']) <= 2030:
+        if re.match(r'20[23]\d$', self.fields['eyr']):
             return 1
 
         return 0
