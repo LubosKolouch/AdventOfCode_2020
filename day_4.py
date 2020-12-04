@@ -13,7 +13,7 @@ class Passport:
     def check_byr(self):
         """ Check the rules for byr """
 
-        if re.match(r'(19[2-9]\d)|(200[012]$)', self.fields['byr']):
+        if re.match(r'(19[2-9]\d)|(200[012])$', self.fields['byr']):
             return 1
 
         return 0
