@@ -27,11 +27,11 @@ class Day5:
                 self.all_seats[decode_row(line.strip())] = 1
 
     def get_task1(self):
-        """ get the numbers needed for Task1 """
+        """ get the biggest Seat ID """
         return max(self.all_seats.keys())
 
     def get_task2(self):
-        """ get the numbers needed for Task2 """
+        """ get the empty Seat ID where neighbours exist """
         for seat in range(128*8):
             if not self.all_seats[seat] and self.all_seats[seat-1] and self.all_seats[seat+1]:
                 return seat
