@@ -12,15 +12,15 @@ class Passport:
 
     def check_byr(self):
         """ Check the rules for byr """
-        return re.match(r'(19[2-9]\d)|(200[012])$', self.fields['byr'])
+        return re.match(r'(19[2-9]\d|200[012])$', self.fields['byr'])
 
     def check_iyr(self):
         """ Check the rules for iyr """
-        return re.match(r'20[12]\d$', self.fields['iyr'])
+        return re.match(r'20(?:1\d|20)$', self.fields['iyr'])
 
     def check_eyr(self):
         """ Check the rules for eyr """
-        return re.match(r'20[23]\d$', self.fields['eyr'])
+        return re.match(r'20(?:2\d|30)$', self.fields['eyr'])
 
     def check_hgt(self):
         """ Check the rules for hgt """
@@ -165,3 +165,25 @@ test_passport.fields['pid'] = '0123456789'
 assert not test_passport.check_pid()
 test_passport.fields['pid'] = 'a000000001'
 assert not test_passport.check_pid()
+
+test_passport.fields['eyr'] = '2035'
+assert not test_passport.check_eyr()
+test_passport.fields['eyr'] = '2030'
+assert test_passport.check_eyr()
+test_passport.fields['eyr'] = '2020'
+assert test_passport.check_eyr()
+test_passport.fields['eyr'] = '2015'
+assert not test_passport.check_eyr()
+
+test_passport.fields['iyr'] = '2025'
+assert not test_passport.check_iyr()
+test_passport.fields['iyr'] = '2005'
+assert not test_passport.check_iyr()
+test_passport.fields['iyr'] = '1925'
+assert not test_passport.check_iyr()
+test_passport.fields['iyr'] = '2010'
+assert test_passport.check_iyr()
+test_passport.fields['iyr'] = '2015'
+assert test_passport.check_iyr()
+test_passport.fields['iyr'] = '2020'
+assert test_passport.check_iyr()
