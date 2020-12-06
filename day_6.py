@@ -8,7 +8,7 @@ def count_task1_group(answers):
 
 
 def count_task2_group(answers):
-    """ Return the answer for Task 1 """
+    """ Return the answer for Task 2 """
     return len(set.intersection(*answers))
 
 
