@@ -44,9 +44,6 @@ class Day7:
     def count_containers(self, container_name):
         """ Recursively count the containers """
 
-        if container_name == "no other":
-            return 0
-
         count = 1
         for name, items in self.all_bags.items():
             if container_name in name:
@@ -58,8 +55,7 @@ class Day7:
     def get_task2(self):
         """ Count all bags within the shiny gold one """
 
-        # don't count the shiny gold bag itself
-        return self.count_containers('shiny gold') - 1
+        return self.count_containers('shiny gold')
 
 
 if __name__ == "__main__":
