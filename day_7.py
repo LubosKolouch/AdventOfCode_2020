@@ -2,6 +2,7 @@
 """ Advent of Code Day 7 """
 import re
 from collections import deque
+from functools import cache
 
 
 class Day7:
@@ -41,6 +42,7 @@ class Day7:
 
         return len(gold_containers)
 
+    @cache
     def count_containers(self, container_name):
         """ Recursively count the containers """
 
