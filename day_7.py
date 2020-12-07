@@ -55,7 +55,7 @@ class Day7:
     def get_task2(self):
         """ Count all bags within the shiny gold one """
 
-        return self.count_containers('shiny gold')
+        return self.count_containers('shiny gold') - 1
 
 
 if __name__ == "__main__":
