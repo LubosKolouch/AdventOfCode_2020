@@ -12,7 +12,7 @@ class Day8:
         self.acc = 0
 
     def process_lines(self):
-        """ Process all lines, load the mapping """
+        """ Process all lines, execute the instructions"""
 
         while 1:
             if self.seen_lines[self.code_pos]:
@@ -35,12 +35,12 @@ class Day8:
             self.code_pos += 1
 
     def get_task1(self):
-        """ Find all bags that contain the golden one """
+        """ Find the accumulator value when the code starts looping """
         self.process_lines()
         return self.acc
 
     def get_task2(self):
-        """ Find all bags that contain the golden one """
+        """ Find the accumulator value when the program runs correctly """
         return self.acc if self.process_lines() else 0
 
 
@@ -59,7 +59,9 @@ class TaskRunner:
         """ Get answer for the task 1 """
         day8 = Day8(self.code)
         day8.process_lines()
-        print(f"Task1: {day8.get_task1()}")
+        result = day8.get_task1()
+        print(f"Task1: {result}")
+        return result
 
     def run_task2(self):
         """ Get asnwer for the task 2 """
@@ -77,6 +79,17 @@ class TaskRunner:
                 result = day8.get_task2()
                 if result:
                     print(f"Task2: {day8.acc}")
+                    return day8.acc
+
+        return 0
+
+
+def test_app():
+    """ Run the tests """
+    runner = TaskRunner()
+    runner.load_input("input8_test")
+    assert runner.run_task1() == 5
+    assert runner.run_task2() == 8
 
 
 if __name__ == "__main__":
