@@ -11,7 +11,7 @@ class Day9:
         self.preamble = preamble
 
     def get_sums(self, position):
-        """ Fill in the sums set for previous 25 numbers """
+        """ Fill in the sums set for previous numbers """
         self.sums = set()
         for comb in combinations(self.numbers[position-self.preamble: position], 2):
             self.sums.add(sum(comb))
