@@ -40,6 +40,7 @@ class Day10:
         for item in self.numbers:
             paths[item] = paths[item-1] + paths[item-2] + paths[item-3]
 
+        print(f"Task2 : {paths[self.numbers[-1]]}")
         return paths[self.numbers[-1]]
 
 
