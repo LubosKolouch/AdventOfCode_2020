@@ -8,7 +8,7 @@ from functools import lru_cache
 class Day11:
     """ Class for processing of day 11 """
     def __init__(self, task: int):
-        self.seats = defaultdict(lambda: '.')
+        self.seats = dict()
 
         self.max_row = 0
         self.max_col = 0
