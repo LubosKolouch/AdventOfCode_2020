@@ -10,8 +10,6 @@ class Day11:
     def __init__(self, task: int):
         self.seats = dict()
 
-        self.max_row = 0
-        self.max_col = 0
         self.task = task
 
     def load_input(self, file_name):
@@ -19,8 +17,6 @@ class Day11:
 
         with open(file_name, "r") as in_file:
             lines = [line.rstrip('\n') for line in in_file]
-            self.max_row = len(lines)-1
-            self.max_col = len(lines[0])-1
             for line_nr, line in enumerate(lines):
                 for char_nr, char in enumerate(line):
                     self.seats[(line_nr, char_nr)] = char
