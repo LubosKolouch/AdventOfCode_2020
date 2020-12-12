@@ -103,8 +103,8 @@ def test_app():
 
 if __name__ == "__main__":
     day_processor = Day11(1)
-    day_processor.load_input("/home/lubos/sw/scripts/adventofcode/2020/input11")
+    day_processor.load_input("input11")
     task1 = day_processor.get_task()
     day_processor = Day11(2)
-    day_processor.load_input("/home/lubos/sw/scripts/adventofcode/2020/input11")
+    day_processor.load_input("input11")
     task2 = day_processor.get_task()
