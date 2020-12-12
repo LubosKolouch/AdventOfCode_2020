@@ -83,11 +83,6 @@ class Day12:
                                  self.position[1] + self.waypoint[1] * step)
                 continue
 
-            if instr == "R":
-                self.position = (self.position[0] - self.waypoint[0] * step,
-                                 self.position[1] - self.waypoint[1] * step)
-                continue
-
             self.waypoint = (self.waypoint[0] + self.move_instr[instr][0] * step,
                              self.waypoint[1] + self.move_instr[instr][1] * step)
 
