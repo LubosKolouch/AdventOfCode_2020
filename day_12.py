@@ -91,7 +91,7 @@ def test_app():
     runner = Day12()
     runner.load_input("input12_test")
     assert runner.get_task1() == 25
-
+    assert runner.get_task2() == 286
 
 if __name__ == "__main__":
     day_processor = Day12()
