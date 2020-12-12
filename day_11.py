@@ -2,7 +2,7 @@
 """ Advent of Code Day 11 """
 from collections import Counter, defaultdict
 from copy import copy, deepcopy
-from functools import lru_cache
+from functools import cache
 
 
 class Day11:
@@ -20,8 +20,9 @@ class Day11:
             for line_nr, line in enumerate(lines):
                 for char_nr, char in enumerate(line):
                     self.seats[(line_nr, char_nr)] = char
+                    
 
-    @lru_cache
+    @cache
     def get_visible_seats(self, position):
         """ Get all the visible seats from a position """
         directions = [(-1, 1), (0, 1), (1, 1), (-1, 0), (1, 0), (-1, -1), (0, -1), (1, -1)]
