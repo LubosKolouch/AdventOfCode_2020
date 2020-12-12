@@ -64,15 +64,11 @@ class Day12:
             instr, step = re.match(r'(.)(\d+)', line).groups()
             step = int(step)
 
-            if instr == "R":
-                rotations = 4 - (step // 90)
-
-                for _ in range(rotations):
-                    self.waypoint = (-self.waypoint[1], self.waypoint[0])
-                continue
-
-            if instr == "L":
+            if instr in ('R', 'L'):
                 rotations = step // 90
+
+                if instr == "R":
+                    rotations = 4 - rotations
 
                 for _ in range(rotations):
                     self.waypoint = (-self.waypoint[1], self.waypoint[0])
