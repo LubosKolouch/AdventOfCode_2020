@@ -5,7 +5,6 @@ import re
 
 class Num:
     """ A bit strange math needed for the exercises """
-
     def __init__(self, value) -> None:
         """
         A special number
@@ -33,7 +32,6 @@ class Num:
 
 class Day18:
     """ Class for processing of day 18 """
-
     def __init__(self, task: int = 1) -> None:
         self.lines = []
         self.task = task
