@@ -134,15 +134,15 @@ def test_app():
     runner.load_input("input19_test3")
     assert runner.get_task == 3
     runner.load_input("input19_test3")
-    runner.msg_rules['8'] = ' 42 | 42 8 '
-    runner.msg_rules['11'] = ' 42 31 | 42 11 31 '
     assert runner.get_task == 12
-
 
 if __name__ == "__main__":
     day_processor = Day19()
     day_processor.load_input("input19")
     print(day_processor.get_task)
-    day_processor.msg_rules['8'] = ' 42 | 42 8 '
-    day_processor.msg_rules['11'] = ' 42 31 | 42 11 31 '
-    print(day_processor.get_task)
+    day_processor.load_input("input19")
+
+    # ugly reddit-inspired hack
+    day_processor.msg_rules['8'] = ' 42+ '
+    day_processor.msg_rules['11'] = ' 42 31 | 42 42 31 31 | 42 42 42 31 31 31 | 42 42 42 42 31 31 31 31 | 42 42 42 42 42 31 31 31 31 31 | 42 42 42 42 42 42 31 31 31 31 31 31'
+    print(day_processor.get_task // 2)
