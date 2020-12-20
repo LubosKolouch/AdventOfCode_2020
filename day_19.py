@@ -134,7 +134,7 @@ def test_app():
     runner.load_input("input19_test3")
     assert runner.get_task == 3
     runner.load_input("input19_test3")
-    assert runner.get_task == 12
+    assert runner.get_task == 6
 
 if __name__ == "__main__":
     day_processor = Day19()
