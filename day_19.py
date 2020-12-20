@@ -147,8 +147,8 @@ if __name__ == "__main__":
     day_processor = Day19()
     day_processor.load_input(
         "/home/lubos/sw/scripts/adventofcode/2020/input19")
-    day_processor.get_task()
+    print(day_processor.get_task)
     day_processor.msg_rules['8'] =  ' 42 | 42 8 '
     day_processor.msg_rules['11'] = ' 42 31 | 42 11 31 '
-    day_processor.get_task()
+    print(day_processor.get_task)
 
