@@ -6,7 +6,7 @@ from copy import deepcopy
 
 def convert_rule_to_regex(rule):
     """ Take a rule and convert it to a regex """
-    print(f"a {rule}")
+    #print(f"a {rule}")
     rule = rule.replace('"', '')
     parts = rule.strip().split('|')
 
@@ -26,7 +26,7 @@ def convert_rule_to_regex(rule):
 
 class Day19:
     """ Class for processing of day 19 """
-    def __init__(self, task: int=1) -> None:
+    def __init__(self, task: int = 1) -> None:
         self.msg_rules = {}
         self.messages = []
         self.conv_rules = {}
@@ -54,7 +54,7 @@ class Day19:
                     self.messages.append(line.strip())
 
         self.msg_rules = deepcopy(rules)
-        print(self.msg_rules)
+        #print(self.msg_rules)
 
     def process_rules(self) -> None:
         """ Convert the rules to characters
@@ -80,13 +80,13 @@ class Day19:
 
             for rule_nr in missing_elems:
                 rule = self.msg_rules[rule_nr]
-                if rule_nr == '24':
-                    print(rule_nr)
                 nums = re.findall(r'\d+', rule)
 
                 for num in nums:
                     if not re.search(r'\d', self.msg_rules[num]):
-                        self.msg_rules[rule_nr] = re.sub(r'\b'+num+r'\b', self.msg_rules[num], self.msg_rules[rule_nr])
+                        self.msg_rules[rule_nr] = re.sub(
+                            r'\b' + num + r'\b', self.msg_rules[num],
+                            self.msg_rules[rule_nr])
 
             missing_elems = []
             for rule_nr, rule in self.msg_rules.items():
@@ -95,7 +95,6 @@ class Day19:
                     missing_elems.append(rule_nr)
 
             len_mis = len(missing_elems)
-            print(len_mis)
             # cleanup spaces
         new_rules = deepcopy(self.msg_rules)
 
@@ -103,7 +102,6 @@ class Day19:
             new_rules[rule_nr] = re.sub(r'\s+', '', rule)
 
         self.msg_rules = deepcopy(new_rules)
-        print(f"4 {self.msg_rules}")
 
     @property
     def get_task(self) -> int:
@@ -115,7 +113,6 @@ class Day19:
 
         matches = 0
         look_regex = re.compile(self.msg_rules['0'])
-        print(f"regex {look_regex}")
         for message in self.messages:
             if re.fullmatch(look_regex, message):
                 matches += 1
@@ -137,18 +134,15 @@ def test_app():
     runner.load_input("input19_test3")
     assert runner.get_task == 3
     runner.load_input("input19_test3")
-    runner.msg_rules['8'] =  ' 42 | 42 8 '
+    runner.msg_rules['8'] = ' 42 | 42 8 '
     runner.msg_rules['11'] = ' 42 31 | 42 11 31 '
     assert runner.get_task == 12
 
 
-
 if __name__ == "__main__":
     day_processor = Day19()
-    day_processor.load_input(
-        "/home/lubos/sw/scripts/adventofcode/2020/input19")
+    day_processor.load_input("input19")
     print(day_processor.get_task)
-    day_processor.msg_rules['8'] =  ' 42 | 42 8 '
+    day_processor.msg_rules['8'] = ' 42 | 42 8 '
     day_processor.msg_rules['11'] = ' 42 31 | 42 11 31 '
     print(day_processor.get_task)
-
