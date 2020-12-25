@@ -1,7 +1,5 @@
 #!/bin/env python
 """ Advent of Code Day 25 """
-from collections import Counter, defaultdict
-from copy import deepcopy
 
 
 class Day25:
@@ -37,7 +35,7 @@ class Day25:
         """ Do the transformation """
 
         value = 1
-        for i in range(1, times + 1):
+        for _ in range(1, times + 1):
             value = (value * key) % 20201227
 
         return value
@@ -50,10 +48,6 @@ class Day25:
         print(f"Task1: {key}")
         return key
 
-    def get_task2(self):
-        """ Run the Game of Life """
-        pass
-
 
 def test_app():
     """ Run the tests """
@@ -61,6 +55,7 @@ def test_app():
     runner.load_input("input25_test")
     task1_solution = runner.get_task1()
     assert task1_solution == 14897079
+
 
 if __name__ == "__main__":
     day_processor = Day25()
